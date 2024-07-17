@@ -23,18 +23,21 @@ function App() {
 
     countriesAPI.getAllNamesCommon()
       .then(res => {
-        console.log(res)
-        if (res.length > 0) {
 
-          if (res.length === 1) {
+        const filteredNames = res.filter(n => n.toLowerCase().includes(event.target.value.toLowerCase()))
+
+        //console.log(filteredNames)
+        if (filteredNames.length > 0) {
+
+          if (filteredNames.length === 1) {
             // show the country info for this country
 
-            setSearchOutputError('Single MATCH!!')
+            setSearchOutputError('Single MATCH!!' + filteredNames[0])
             setSearchOutputList([])
 
           } else {
 
-            if (res.length > searchOutputThreshold) {
+            if (filteredNames.length > searchOutputThreshold) {
               // too many countries to list
               setSearchOutputError(overThresholdMessage)
               setSearchOutputList([])
@@ -42,7 +45,7 @@ function App() {
             } else {
 
               // output the countries
-              setSearchOutputList(res)
+              setSearchOutputList(filteredNames)
               setSearchOutputError('')
             }
           }
