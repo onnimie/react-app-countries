@@ -10,7 +10,7 @@ npm run dev
 
 If you have an API-key for openweathermap.com, launch the app instead with the command:
 ```
-export VITE_SOME_KEY=54l41n3n4v41m34rv0 && npm run dev         // Linux/macOS Bash
-($env:VITE_SOME_KEY="54l41n3n4v41m34rv0") -and (npm run dev)   // Windows PowerShell
-set "VITE_SOME_KEY=54l41n3n4v41m34rv0" && npm run dev          // Windows cmd.exe
+export VITE_WEATHER_API_KEY=your_api_key_here && npm run dev         // Linux/macOS Bash
+($env:VITE_WEATHER_API_KEY=your_api_key_here) -and (npm run dev)   // Windows PowerShell
+set "VITE_WEATHER_API_KEY=your_api_key_here" && npm run dev          // Windows cmd.exe
 ```
