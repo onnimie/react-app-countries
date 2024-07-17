@@ -1,10 +1,10 @@
 const SearchBar = (props) => {
     const onInputChange = props.onInputChange
-    //const value = props.value
+    const value = props.value
     return (
         <div>
             find countries by name <></>
-            <input onChange={onInputChange} />
+            <input onChange={onInputChange} value={value} />
         </div>
     )
 }

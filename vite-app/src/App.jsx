@@ -6,9 +6,12 @@ import SearchBar from './components/SearchBar'
 
 function App() {
 
+  const [searchBarValue, setSearchBarValue] = useState('')
+
 
   const handleSearchBarInputChange = (event) => {
-    console.log(event.target.value)
+    //console.log(event.target.value)
+    setSearchBarValue(event.target.value)
   }
 
   return (
@@ -17,7 +20,7 @@ function App() {
         test
       </h1>
 
-      <SearchBar onInputChange={handleSearchBarInputChange} />
+      <SearchBar onInputChange={handleSearchBarInputChange} value={searchBarValue} />
     </div>
   )
 }
