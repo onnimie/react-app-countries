@@ -11,6 +11,7 @@ function App() {
   const [searchBarValue, setSearchBarValue] = useState('')
   const [searchOutputList, setSearchOutputList] = useState([])
   const [searchOutputError, setSearchOutputError] = useState('')
+  const [searchOutputCountry, setSearchOutputCountry] = useState(null)
 
   const searchOutputThreshold = 10 //if output has more countries, render some message that says its too many
 
@@ -32,8 +33,14 @@ function App() {
           if (filteredNames.length === 1) {
             // show the country info for this country
 
-            setSearchOutputError('Single MATCH!!' + filteredNames[0])
-            setSearchOutputList([])
+            countriesAPI.getCountryByName(filteredNames[0]).then(res => {
+              setSearchOutputCountry(res)
+              setSearchOutputError('')
+              setSearchOutputList([])
+            })
+            .catch(err => {
+              console.log("error in getCountryByName", err)
+            })
 
           } else {
 
@@ -41,12 +48,14 @@ function App() {
               // too many countries to list
               setSearchOutputError(overThresholdMessage)
               setSearchOutputList([])
+              setSearchOutputCountry(null)
 
             } else {
 
               // output the countries
               setSearchOutputList(filteredNames)
               setSearchOutputError('')
+              setSearchOutputCountry(null)
             }
           }
         } else {
@@ -54,6 +63,7 @@ function App() {
 
           setSearchOutputList([])
           setSearchOutputError(noMatchMessage)
+          setSearchOutputCountry(null)
         }
 
 
@@ -74,6 +84,8 @@ function App() {
       <p>{searchOutputError}</p>
 
       <SearchOutput countryNames={searchOutputList} />
+
+      <CountryInfo countryObj={searchOutputCountry} />
     </div>
   )
 }
