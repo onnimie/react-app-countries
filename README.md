@@ -14,3 +14,6 @@ export VITE_WEATHER_API_KEY=your_api_key_here && npm run dev         // Linux/ma
 ($env:VITE_WEATHER_API_KEY=your_api_key_here) -and (npm run dev)   // Windows PowerShell
 set "VITE_WEATHER_API_KEY=your_api_key_here" && npm run dev          // Windows cmd.exe
 ```
+
+After running the app, open your browser and go to localhost with the specified port from the output after the 'npm run dev' command.
+By default, it should be http://localhost:5173/
