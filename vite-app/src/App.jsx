@@ -87,7 +87,7 @@ function App() {
   return (
     <div>
       <h1>
-        test
+        React app for finding information on countries
       </h1>
 
       <SearchBar onInputChange={handleSearchBarInputChange} value={searchBarValue} />
