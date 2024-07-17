@@ -1,7 +1,8 @@
 import { useState } from 'react'
-//import CountryInfo from './components/CountryInfo'
+import CountryInfo from './components/CountryInfo'
 import SearchBar from './components/SearchBar'
 import countriesAPI from './services/countriesAPI'
+import SearchOutput from './components/SearchOutput'
 
 
 
@@ -22,6 +23,7 @@ function App() {
 
     countriesAPI.getAllNamesCommon()
       .then(res => {
+        console.log(res)
         if (res.length > 0) {
 
           if (res.length === 1) {
@@ -65,6 +67,10 @@ function App() {
       </h1>
 
       <SearchBar onInputChange={handleSearchBarInputChange} value={searchBarValue} />
+
+      <p>{searchOutputError}</p>
+
+      <SearchOutput countryNames={searchOutputList} />
     </div>
   )
 }
