@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import CountryInfo from './components/CountryInfo'
+import SearchBar from './components/SearchBar'
 
 function App() {
 
