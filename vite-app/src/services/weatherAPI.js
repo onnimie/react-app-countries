@@ -5,8 +5,7 @@ import axios from 'axios'
 // set "VITE_WEATHER_API_KEY=apikeyhere" && npm run dev
 
 // with this, we access it as follows:
-//const api_key = import.meta.env.VITE_WEATHER_API_KEY
-const api_key = '79801c3d3b0b1a06285f26742f69b9f4'
+const api_key = import.meta.env.VITE_WEATHER_API_KEY
 
 
 const getWeatherWithLongitudeLatitude = (lon, lat) => {
