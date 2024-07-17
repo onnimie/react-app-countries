@@ -14,7 +14,7 @@ const CountryInfo = ({countryObj}) => {
                 </h2>
                 
                 <p>capital {countryObj.capital[0]}</p>
-                <p>area {countryObj.area} </p>
+                <p>area {countryObj.area} km^2</p>
                 <b>languages:</b>
                 <ul>
                     {langs.map(lang =>
