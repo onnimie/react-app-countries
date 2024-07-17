@@ -2,7 +2,7 @@ const SearchOutput = (props) => {
     return (
         <ul>
             {props.countryNames.map(name => 
-                <li>
+                <li key={name}>
                     name
                 </li>
             )}
