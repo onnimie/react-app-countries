@@ -4,7 +4,7 @@ const CountryInfo = ({countryObj}) => {
     } else {
         //console.log(Object.values(countryObj.languages))
         const langs = Object.values(countryObj.languages)
-        console.log(countryObj.flags)
+        //console.log(countryObj.flags)
         const flag_src = countryObj.flags.png
         const flag_alt = countryObj.flags.alt
         return (

@@ -73,6 +73,17 @@ function App() {
       })
   }
 
+  const showCountryButtonClicked = (name) => {
+    countriesAPI.getCountryByName(name).then(res => {
+      setSearchOutputCountry(res)
+      setSearchOutputError('')
+      setSearchOutputList([])
+    })
+    .catch(err => {
+      console.log("error in getCountryByName", err)
+    })
+  }
+
   return (
     <div>
       <h1>
@@ -83,7 +94,7 @@ function App() {
 
       <p>{searchOutputError}</p>
 
-      <SearchOutput countryNames={searchOutputList} />
+      <SearchOutput countryNames={searchOutputList} showFunction={showCountryButtonClicked} />
 
       <CountryInfo countryObj={searchOutputCountry} />
     </div>
